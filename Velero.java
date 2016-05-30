@@ -26,13 +26,13 @@ public class Velero extends Barco
        return numeroMastiles; 
     }
     
-     /**
-     * imprime los datos por pantalla del VELERO
+    /**
+     * Return all the data
      */
-    public String toString(){
-        return "matricula: "+ getMatricula() + 
-               "\neslora: "+ getEslora() +
-               "\nanoFab: "+ getAnoFabricacion() +
-               "\nnumero de mastiles: "+ numeroMastiles;
+    public String toString()
+    {
+        String data = super.toString();
+        data += "Número de mástiles: " + numeroMastiles + "\n";
+        return data;
     }
 }

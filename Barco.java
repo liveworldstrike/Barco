@@ -53,7 +53,14 @@ public abstract class Barco
     public abstract int getCoeficienteBernua();
     
     /**
-     * Devuelve todos los datos del barco.
+     * Return all the data
      */
-    public abstract String toString();
+    @Override
+    public String toString()
+    {
+        String datos = "Matricula: " + matricula + "\n";
+        datos += "Eslora: " + eslora + "\n";
+        datos += "Año de fabricación: " + anoFabricacion + "\n";
+        return datos;
+    }
 }

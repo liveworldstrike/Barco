@@ -41,20 +41,27 @@ public class Puerto
     public void verEstadoAmarres(){
         for(int cont = 0; cont < NUMERO_AMARRES;cont++){
             if(alquileres[cont] == null)
-                System.out.println("Amarre " + (cont+1) + " ¡no esta ocupado");
+                System.out.println("Amarre " + (cont) + " no esta ocupado");
             else{
-                System.out.println("Amarre " + (cont+1) 
+                System.out.println("Amarre " + (cont) 
                 + " esta ocupado, su alquiler es de " + alquileres[cont].getCosteAlquiler()+ "euros");
             }
         }
     }
     
     /**
-     * devuelve el alquiler con su coste 
+     * Liberate moorage. Returns -1 if posicion is not valid
      */
-    public float liquidarAlquiler(int posicion){
-        float liquidacion = alquileres[posicion].getCosteAlquiler();
-        alquileres[posicion] = null;
-        return liquidacion;
+    public float liquidarAlquiler(int posicion)
+    {
+      float valor = -1;
+      if(posicion < NUMERO_AMARRES && posicion >= 0){
+        if(alquileres[posicion] != null){
+        	valor = alquileres[posicion].getCosteAlquiler();
+          alquileres[posicion] = null;
+        }
+      }
+	  return valor;
     }
+
 }

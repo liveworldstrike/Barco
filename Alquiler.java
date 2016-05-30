@@ -33,15 +33,21 @@ public class Alquiler
      */
     public float getCosteAlquiler()
     {
-        return numeroDias * (barco.getEslora() * MULTIPLICADOR_ESLORA) + (VALOR_FIJO_ALQUILER * barco.getCoeficienteBernua());
+        return numeroDias *(barco.getEslora() * MULTIPLICADOR_ESLORA) + (VALOR_FIJO_ALQUILER * barco.getCoeficienteBernua());
     }
     
     /**
-     * Devuelve los datos del VELERO
+     * Return all the data
      */
-    public String toString(){
-        return "Numero de dias: " + numeroDias + 
-               "\nCliente: " + cliente.toString() + 
-               "\nBarco: " + barco.toString();
+    @Override
+    public String toString()
+    {
+        String data = "- Cliente: \n";
+        data += cliente;
+        data += "- Barco: \n";
+        data += barco;
+        data += "Número de dias: " + numeroDias + "\n";
+        data += "Coste del alquiler: " + getCosteAlquiler() + "\n";
+        return data;
     }
 }

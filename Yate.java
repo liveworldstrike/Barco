@@ -23,17 +23,13 @@ public class Yate extends EmbarcacionDeportiva
      * devuelve el coeficiente de bernua del barco 
      */
     public int getCoeficienteBernua(){
-        return super.getCoeficienteBernua()+ camarotes; 
+        return super.getCoeficienteBernua()+camarotes; 
     }
     
-    /**
-     * Imprime los datos por pantalla del VELERO
-     */
-    public String toString(){
-        return "Matricula: " + getMatricula() + 
-               "\nEslora: " + getEslora() +
-               "\nAño Fabricación: " + getAnoFabricacion() +
-               "\nPotencia: "+ super.getCoeficienteBernua() +
-               "\nCamarotes: "+ camarotes;
+    public String toString()
+    {
+        String data = super.toString();
+        data += "Númeo de camarotes: " + camarotes + "\n";
+        return data;
     }
 }
