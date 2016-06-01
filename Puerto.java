@@ -63,20 +63,22 @@ public class Puerto
     //             }
     //         }
     //     }
-
-    //     /**
-    //      * Liberate moorage. Returns -1 if posicion is not valid
-    //      */
-    //     public float liquidarAlquiler(int posicion)
-    //     {
-    //         float valor = -1;
-    //         if(posicion < NUMERO_AMARRES && posicion >= 0){
-    //             if(alquileres[posicion] != null){
-    //                 valor = alquileres[posicion].getCosteAlquiler();
-    //                 alquileres[posicion] = null;
-    //             }
-    //         }
-    //         return valor;
-    //     }
+    /**
+     * liquida un alquiler de un barco
+     */
+    public float liquidarAlquiler(int posicion){       
+        int cont = 0;
+        float valor = -1;
+        boolean coincide = false;
+        while(cont < alquileres.size() && !coincide){
+            if (alquileres.get(cont).getAmarre() == posicion){
+                valor = alquileres.get(cont).getCosteAlquiler();
+                alquileres.remove(cont);
+                coincide = true;
+            }
+            cont++;
+        }
+        return valor;
+    }
 
 }
