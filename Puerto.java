@@ -50,19 +50,28 @@ public class Puerto
         return posicion;
     }
 
-    //     /**
-    //      * imprimer el estado de los amarres del Puerto 
-    //      */
-    //     public void verEstadoAmarres(){
-    //         for(int cont = 0; cont < NUMERO_AMARRES;cont++){
-    //             if(alquileres[cont] == null)
-    //                 System.out.println("Amarre " + (cont) + " no esta ocupado");
-    //             else{
-    //                 System.out.println("Amarre " + (cont) 
-    //                     + " esta ocupado, su alquiler es de " + alquileres[cont].getCosteAlquiler()+ "euros");
-    //             }
-    //         }
-    //     }
+    /**
+     * imprimer el estado de los amarres del Puerto 
+     */
+    public void verEstadoAmarres() {
+        for(int cont= 0;cont<NUMERO_AMARRES; cont++) {
+            int contador = 0;
+            boolean coincide = false;
+            while(!coincide && contador<alquileres.size()) {
+                if(alquileres.get(contador)!=null) {
+                    if(alquileres.get(contador).getAmarre()==cont) {
+                        System.out.println("Amarre " + cont + " está ocupado con precio " + alquileres.get(contador).getCosteAlquiler());
+                        coincide = true;
+                    }
+                }
+                contador++;
+            }
+            if(!coincide) {
+                System.out.println("Amarre " + cont + " no está ocupado");
+            }
+        }
+    }
+
     /**
      * liquida un alquiler de un barco
      */

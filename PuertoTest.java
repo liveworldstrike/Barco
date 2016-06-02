@@ -108,5 +108,96 @@ public class PuertoTest
         assertEquals(-1, puerto1.liquidarAlquiler(2), 0.1);
         assertEquals(2, puerto1.addAlquiler(2, cliente4, yate1));
     }
+    
+    @Test
+    public void addAlquiler002()
+    {
+        Puerto puerto1 = new Puerto();
+        Cliente cliente1 = new Cliente("Dani", "Kraken");
+        Velero velero1 = new Velero(2, "Kraken", 4, 6854);
+
+        System.out.println("Comprobamos que el puerto esta vacio:");
+        puerto1.verEstadoAmarres();
+        System.out.println("\n");//####################################################
+        assertEquals(0, puerto1.addAlquiler(1, cliente1, velero1));
+        assertEquals(1, puerto1.addAlquiler(2, cliente1, velero1));
+        assertEquals(2, puerto1.addAlquiler(3, cliente1, velero1));
+        assertEquals(3, puerto1.addAlquiler(4, cliente1, velero1));
+        System.out.println("Añadimos 4 barcos:");
+        puerto1.verEstadoAmarres();
+        System.out.println("\n");//####################################################
+        assertEquals(680, puerto1.liquidarAlquiler(1), 0.1);
+        System.out.println("Eliminamos el Barco del amarre 1:");
+        puerto1.verEstadoAmarres();
+        assertEquals(1, puerto1.addAlquiler(2, cliente1, velero1));
+        System.out.println("1)Añadimos 1 barco:");
+        puerto1.verEstadoAmarres();
+        System.out.println("\n");//####################################################
+        assertEquals(720, puerto1.liquidarAlquiler(2), 0.1);
+        System.out.println("Eliminamos el Barco del amarre 2:");
+        puerto1.verEstadoAmarres();
+        assertEquals(2, puerto1.addAlquiler(3, cliente1, velero1));
+        System.out.println("2)Añadimos 1 barco:");
+        puerto1.verEstadoAmarres();
+        System.out.println("\n");//####################################################
+        assertEquals(640, puerto1.liquidarAlquiler(0), 0.1);
+        System.out.println("Eliminamos el Barco del amarre 0:");
+        puerto1.verEstadoAmarres();
+        assertEquals(0, puerto1.addAlquiler(1, cliente1, velero1));
+        System.out.println("3)Añadimos 1 barco:");
+        puerto1.verEstadoAmarres();
+        System.out.println("\n");//####################################################
+        assertEquals(760, puerto1.liquidarAlquiler(3), 0.1);
+        System.out.println("Eliminamos el Barco del amarre 3:");
+        puerto1.verEstadoAmarres();
+        assertEquals(3, puerto1.addAlquiler(1, cliente1, velero1));
+        System.out.println("4)Añadimos 1 barco:");
+        puerto1.verEstadoAmarres();
+        System.out.println("\n");//####################################################
+        assertEquals(680, puerto1.liquidarAlquiler(1), 0.1);
+        System.out.println("Eliminamos el Barco del amarre 1:");
+        assertEquals(720, puerto1.liquidarAlquiler(2), 0.1);
+        System.out.println("Eliminamos el Barco del amarre 2:");
+        puerto1.verEstadoAmarres();
+        assertEquals(1, puerto1.addAlquiler(1, cliente1, velero1));
+        assertEquals(2, puerto1.addAlquiler(1, cliente1, velero1));
+        System.out.println("5)Añadimos 2 barcos:");
+        puerto1.verEstadoAmarres();
+        System.out.println("\n");//####################################################
+        assertEquals(640, puerto1.liquidarAlquiler(0), 0.1);
+        System.out.println("Eliminamos el Barco del amarre 0:");
+        assertEquals(640, puerto1.liquidarAlquiler(3), 0.1);
+        System.out.println("Eliminamos el Barco del amarre 3:");
+        puerto1.verEstadoAmarres();
+        assertEquals(0, puerto1.addAlquiler(1, cliente1, velero1));
+        assertEquals(3, puerto1.addAlquiler(1, cliente1, velero1));
+        System.out.println("6)Añadimos 2 barcos:");
+        puerto1.verEstadoAmarres();
+        System.out.println("\n");//####################################################
+        assertEquals(640, puerto1.liquidarAlquiler(0), 0.1);
+        System.out.println("Eliminamos el Barco del amarre 0:");
+        assertEquals(640, puerto1.liquidarAlquiler(2), 0.1);
+        System.out.println("Eliminamos el Barco del amarre 2:");
+        puerto1.verEstadoAmarres();
+        assertEquals(0, puerto1.addAlquiler(1, cliente1, velero1));
+        assertEquals(2, puerto1.addAlquiler(1, cliente1, velero1));
+        System.out.println("7)Añadimos 2 barcos:");
+        puerto1.verEstadoAmarres();
+        System.out.println("\n");//####################################################
+        assertEquals(640, puerto1.liquidarAlquiler(1), 0.1);
+        System.out.println("Eliminamos el Barco del amarre 1:");
+        assertEquals(640, puerto1.liquidarAlquiler(3), 0.1);
+        System.out.println("Eliminamos el Barco del amarre 3:");
+        puerto1.verEstadoAmarres();
+        assertEquals(1, puerto1.addAlquiler(1, cliente1, velero1));
+        assertEquals(3, puerto1.addAlquiler(1, cliente1, velero1));
+        System.out.println("8)Añadimos 2 barcos:");
+        puerto1.verEstadoAmarres();
+        System.out.println("\n");//####################################################
+        System.out.println("9)Añadimos 2 barcos con diferente precio de alquiler:");
+        assertEquals(-1, puerto1.addAlquiler(2, cliente1, velero1));
+        assertEquals(-1, puerto1.addAlquiler(3, cliente1, velero1));
+        puerto1.verEstadoAmarres();
+    }
 }
 
